@@ -2,6 +2,6 @@
 <button {{action 'clear'}}>Clear</button>
 <ul>
 {{#each lines as |line|}}
-  <li>{{line.component}}#{{line.hook}} ({{line.arguments}}) </li>
+  <li>{{line.component}}#{{line.hook}} ({{present-arguments line.args}}) </li>
 {{/each}}
 </ul>
