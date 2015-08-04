@@ -4,5 +4,13 @@
   {{outlet}}
 </div>
 <div class="half-width">
-  {{log-output lines=logger.lines}}
+  {{#log-output lines=logger.lines as |line|}}
+    {{line.component}}#{{line.hook}} ({{#argument-list arguments=line.args as |arg|}}<span class="arg" {{action 'showArgumentModal' arg.value}}>{{arg.type}}</span>{{/argument-list}})
+  {{/log-output}}
 </div>
+
+{{#if isShowingArgumentModal}}
+  {{#modal-dialog close="closeArgumentModal"}}
+    {{present-arguments currentArgument}}
+  {{/modal-dialog}}
+{{/if}}

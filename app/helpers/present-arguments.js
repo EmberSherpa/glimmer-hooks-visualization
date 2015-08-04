@@ -3,9 +3,7 @@ import Ember from 'ember';
 const { typeOf, keys } = Ember;
 
 export function presentArguments(params/*, hash*/) {
-  let [ args ] = params;
-  args = [].slice.apply(args);
-  return toString(parse(args));
+  return toString(parse(params));
 }
 
 export default Ember.Helper.helper(presentArguments);

@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
       return {
         title: 'Announcing Ember 2.0',
         body: 'The latest and greatest Ember since 1.13'
-      }
+      };
     }
   }),
   actions: {
