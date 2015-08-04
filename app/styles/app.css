@@ -1,0 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.blog-post {
+  border: 1px black dashed;
+  padding: 10px;
+}
+
+.half-width {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}

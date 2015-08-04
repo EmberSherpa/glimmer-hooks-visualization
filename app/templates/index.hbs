@@ -1,0 +1,4 @@
+<button {{action 'toggleBlogPostVisibility'}}>{{if showBlogPost 'Hide' 'Show'}} Blog Post Component</button>
+{{#if showBlogPost}}
+  {{blog-post title=blogPost.title body=blogPost.body}}
+{{/if}}

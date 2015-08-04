@@ -1,0 +1,7 @@
+<h2>Call log</h2>
+<button {{action 'clear'}}>Clear</button>
+<ul>
+{{#each lines as |line|}}
+  <li>{{line.component}}#{{line.hook}} ({{line.arguments}}) </li>
+{{/each}}
+</ul>
