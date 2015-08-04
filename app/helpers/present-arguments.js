@@ -3,10 +3,33 @@ import Ember from 'ember';
 const { typeOf, keys } = Ember;
 
 export function presentArguments(params/*, hash*/) {
-  return toString(parse(params));
+  const result = toString(parse(params));
+  return syntaxHighlight(JSON.parse(result));
 }
 
 export default Ember.Helper.helper(presentArguments);
+
+function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+         json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
 
 function parse(args) {
   let parsed = [];
@@ -37,13 +60,13 @@ function toString(parsed) {
       if (type === 'object') {
         let parsed = parse(value);
         let output = parsed.map(function(part) {
-          return `${part.propName}: ${toString([part])}`;
+          return `"${part.propName}": ${toString([part])}`;
         }).join(', ');
-        parts.push(`${prop}: {${output}}`);
+        parts.push(`"${prop}": {${output}}`);
       } else if (type === 'string') {
-        parts.push(`${prop}: "${value}"`);
+        parts.push(`"${prop}": "${value}"`);
       } else if (type === 'function') {
-        parts.push(`${prop}: function`);
+        parts.push(`"${prop}": "function"`);
       }
     });
     return `{${parts.join(', ')}}`;

@@ -11,6 +11,7 @@
 
 {{#if isShowingArgumentModal}}
   {{#modal-dialog close="closeArgumentModal"}}
-    {{present-arguments currentArgument}}
+  <div class="argument-modal"><pre>{{{present-arguments currentArgument}}}</pre>
+  </div>
   {{/modal-dialog}}
 {{/if}}
