@@ -1,8 +1,8 @@
 <h3>Call log <button {{action 'clear'}}>Clear</button></h3>
 
-<ul>
+<ul class="log-list">
 {{#each lines as |line|}}
-  <li>
+  <li class="log-list-item">
     {{yield line}}
   </li>
 {{/each}}

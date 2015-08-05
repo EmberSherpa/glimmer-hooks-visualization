@@ -1,0 +1,16 @@
+<h2>Curly Components</h2>
+
+<h4>The component is rendered and properties are passed to the component.</h4>
+
+{{code-snippet name='curly-components-with-arguments.hbs'}}
+
+{{! BEGIN-SNIPPET curly-components-with-arguments}}
+{{blog-post
+  title=blogPost.title
+  body=blogPost.body
+}}
+{{! END-SNIPPET }}
+
+{{code-snippet name='curly-components-change-block-post-action.js'}}
+
+<button {{action 'change-blog-post'}}>Change Blog Post</button> by setting the <em>blogPost</em> property.

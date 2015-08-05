@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('currly-components');
+  this.route('curly-components');
 });
 
 export default Router;

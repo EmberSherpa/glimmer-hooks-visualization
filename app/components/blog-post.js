@@ -8,34 +8,38 @@ export default Ember.Component.extend({
   logger: service(),
   didInitAttrs() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'didInitAttrs', arguments);
+    this.get('logger').add(this, 'didInitAttrs', arguments);
   },
   didReceiveAttrs() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'didReceiveAttrs', arguments);
+    this.get('logger').add(this, 'didReceiveAttrs', arguments);
   },
   willRender() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'willRender', arguments);
+    this.get('logger').add(this, 'willRender', arguments);
   },
   didInsertElement() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'didInsertElement', arguments);
+    this.get('logger').add(this, 'didInsertElement', arguments);
   },
   didUpdateAttrs() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'didUpdateAttrs', arguments);
+    this.get('logger').add(this, 'didUpdateAttrs', arguments);
   },
   willUpdate() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'willUpdate', arguments);
+    this.get('logger').add(this, 'willUpdate', arguments);
   },
   didUpdate() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'didUpdate', arguments);
+    this.get('logger').add(this, 'didUpdate', arguments);
   },
   didRender() {
     this._super.apply(this, arguments);
-    this.get('logger').add('blog-post', 'didRender', arguments);
+    this.get('logger').add(this, 'didRender', arguments);
+  },
+  willDestroyElement() {
+    this._super.apply(this, arguments);
+    this.get('logger').add(this, 'willDestroyElement', arguments);
   }
 });
