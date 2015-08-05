@@ -4,6 +4,7 @@ const {inject} = Ember;
 const {service} = inject;
 
 export default Ember.Component.extend({
+  tagName: '',
   logger: service(),
   didInitAttrs() {
     this._super.apply(this, arguments);

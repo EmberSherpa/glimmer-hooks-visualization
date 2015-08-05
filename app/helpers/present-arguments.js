@@ -10,7 +10,7 @@ export function presentArguments(params/*, hash*/) {
 export default Ember.Helper.helper(presentArguments);
 
 function syntaxHighlight(json) {
-    if (typeof json != 'string') {
+    if (typeof json !== 'string') {
          json = JSON.stringify(json, undefined, 2);
     }
     json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

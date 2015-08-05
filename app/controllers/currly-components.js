@@ -11,10 +11,5 @@ export default Ember.Controller.extend({
         body: 'The latest and greatest Ember since 1.13'
       };
     }
-  }),
-  actions: {
-    toggleBlogPostVisibility() {
-      this.toggleProperty('showBlogPost');
-    }
-  }
+  })
 });
